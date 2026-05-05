@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My College Diary | Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, serif;
+            background: #0f0608;
+            color: white;
+            overflow: hidden;
+        }
+
+        /* HEADER */
+        header {
+            background: #00acdb;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        header nav a:hover {
+            color: black;
+        }
+
+        /* PAGE SYSTEM */
+        .page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            padding: 100px 60px 40px;
+            display: none;
+            overflow-y: auto;
+        }
+
+        .active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 80vh;
+            width: 100%;
+        }
+
+        .text {
+            max-width: 600px;
+        }
+
+        .text h1 {
+            font-size: 50px;
+        }
+
+        .text h3 {
+            color: rgb(0, 195, 255);
+            margin: 20px 0;
+        }
+
+        .btn {
+            background: rgb(0, 157, 255);
+            color: black;
+            padding: 12px 28px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: white;
+        }
+
+        /* IMAGES */
+        .image img {
+            width: 400px;
+            max-width: 100%;
+        }
+
+        .about-image img {
+            width: 280px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 3px solid rgb(0, 217, 255);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            transition: 0.3s;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.05);
+        }
+
+        /* BLOG GALLERY STYLES */
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0 50px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .diary-card {
+            background: #1a0d10;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
+
+        .diary-card:hover {
+            transform: translateY(-10px);
+            border-color: rgb(0, 174, 255);
+        }
+
+        .diary-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 2px solid rgb(0, 187, 255);
+        }
+
+        .diary-text {
+            padding: 20px;
+        }
+
+        .diary-text .date {
+            font-size: 12px;
+            color: rgb(0, 200, 255);
+            font-weight: bold;
+        }
+
+        .diary-text h4 {
+            margin: 10px 0;
+            font-size: 20px;
+        }
+
+        .diary-text p {
+            font-size: 14px;
+            color: #ccc;
+            line-height: 1.5;
+        }
+
+        /* BOX & FORMS */
+        .content-box {
+            background: #1a0d10;
+            padding: 25px;
+            border-left: 4px solid rgb(0, 200, 255);
+            margin-bottom: 20px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            background: #1a0d10;
+            color: white;
+            border: 1px solid #333;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width: 900px){
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .image img, .about-image img {
+                width: 250px;
+                height: auto;
+                margin-top: 30px;
+            }
+
+            header {
+                padding: 15px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>MY COLLEGE DIARY</h2>
+    <nav>
+        <a onclick="showPage('home')">HOME</a>
+        <a onclick="showPage('about')">ABOUT</a>
+        <a onclick="showPage('blog')">BLOG</a>
+        <a onclick="showPage('contact')">CONTACT</a>
+    </nav>
+</header>
+
+<!-- HOME -->
+<div class="page active" id="home">
+    <section class="hero">
+        <div class="text">
+            <h1>Hello! I'm</h1>
+            <h1>Villanueva, Jhon Chael</h1>
+            <h3>GRAPHIC DESIGNER</h3>
+            <p>Creative thinker. Visual storyteller. Passionate designer.</p>
+            <br>
+            <button class="btn" onclick="showPage('contact')">LET'S TALK</button>
+        </div>
+
+        <div class="image">
+            <img src="c:\Users\acer\OneDrive\Documents\villanuevakael\KEL.png" alt="Home Image">
+        </div>
+    </section>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="about">
+    <section class="hero">
+        <div class="text">
+            <h1>About Me</h1>
+            <h3>WHO I AM</h3>
+            <div class="content-box">
+                <p>I am a student with a deep interest in Graphic Design and Web Development.</p>
+                <br>
+                <p>Knowledge is a lifelong journey, not a temporary task. It inspires us to be constantly curious, to read, to ask questions, and to learn from the world around us.</p>
+            </div>
+        </div>
+
+        <div class="about-image">
+            <!-- Palitan ang path na ito kung saan nakalagay ang photo mo -->
+            <img src="aa.jfif" alt="My Professional Photo">
+        </div>
+    </section>
+</div>
+
+<!-- BLOG (GALLERY STYLE) -->
+<div class="page" id="blog">
+    <div class="blog-container">
+        <h1>My Diary Gallery</h1>
+        <p style="text-align: center; color: gold;">Moments and milestones from my journey.</p>
+
+        <div class="gallery-grid">
+            <!-- Entry 1 -->
+            <div class="diary-card">
+                <img src="c:\Users\acer\Downloads\pic.jfif" alt="Entry 1">
+                <div class="diary-text">
+                    <span class="date">April 23-24, 2026</span>
+                    <h4>IT Ethics and Journey</h4>
+                    <p>Exhibit day! Keep going, even if you lose.</p>
+                </div>
+            </div>
+
+            <!-- Entry 2 -->
+            <div class="diary-card">
+                <img src="c:\Users\acer\Downloads\intrams.jfif" alt="Entry 2">
+                <div class="diary-text">
+                    <span class="date"></span>
+                    <h4>INTRAMS AND BUILD CONNECTION</h4>
+                    <p>Memories to gain love and connection people around us</p>
+                </div>
+            </div>
+
+            <!-- Entry 3 -->
+            <div class="diary-card">
+                <img src="c:\Users\acer\Downloads\ll.jfif" alt="Entry 3">
+                <div class="diary-text">
+                    <span class="date"></span>
+                    <h4>MAKING HARDWARE TO MAKE HARDER</h4>
+                    <p>Natutunan lahat. Mahirap pero worth it ang pagod.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    /* Animation Keyframes */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* I-apply ang animation sa text at boxes */
+    .animate-me {
+        animation: fadeInUp 0.8s ease-out forwards;
+        opacity: 0; /* Simulang invisible para sa animation */
+    }
+
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
+    .delay-3 { animation-delay: 0.6s; }
+
+    /* Hover effect para sa buttons */
+    .btn:hover {
+        transform: scale(1.05);
+        transition: 0.3s;
+        background-color: #0082a7;
+    }
+</style>
+
+<!-- CONTACT SECTION -->
+<div class="page" id="contact">
+    <section class="hero">
+        <div class="text">
+            <h1 class="animate-me">Contact Me</h1>
+            <p class="animate-me delay-1">Feel free to reach out for collaborations!</p>
+            
+            <div class="content-box animate-me delay-2" style="margin-top: 20px; background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px;">
+                <p>📧 <strong>Email:</strong> <a href="mailto:johnchael@example.com" style="color: #00acdb; text-decoration: none;">johnchael   @example.com</a></p>
+                <p>📸 <strong>Instagram:</strong> <a href="https://instagram.com/likaeel" target="_blank" style="color: #00acdb; text-decoration: none;">@likaeel</a></p>
+            </div>
+
+            <div class="animate-me delay-3" style="margin-top: 25px;">
+                <input type="text" placeholder="Your Name" style="width: 100%; padding: 10px; margin-bottom: 10px;">
+                <input type="email" placeholder="Your Email" style="width: 100%; padding: 10px; margin-bottom: 10px;">
+                <textarea placeholder="Your Message" rows="5" style="width: 100%; padding: 10px; margin-bottom: 10px;"></textarea>
+                <br>
+                <button class="btn">SEND MESSAGE</button>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- CONTACT -->
+<div class="page" id="contact">
+    <section class="hero">
+        <div class="text">
+            <h1>Contact Me</h1>
+            <p>Feel free to reach out for collaborations!</p>
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your Email">
+            <textarea placeholder="Your Message" rows="5"></textarea>
+            <br><br>
+            <button class="btn">SEND MESSAGE</button>
+        </div>
+
+       
+            
+        </div>
+    </section>
+</div>
+
+<script>
+function showPage(pageId) {
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(page => page.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+    
+    // Scroll to top when switching pages
+    document.getElementById(pageId).scrollTop = 0;
+}
+</script>
+
+</body>
+</html>
